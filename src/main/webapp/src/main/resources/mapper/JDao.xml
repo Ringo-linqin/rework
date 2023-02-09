@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.JDao">
+
+    <resultMap type=".entity.J" id="JMap">
+        <result property="jno" column="JNO" jdbcType="VARCHAR"/>
+        <result property="jname" column="JNAME" jdbcType="VARCHAR"/>
+        <result property="city" column="CITY" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="JMap">
+        select
+          JNO, JNAME, CITY
+        from J
+        where JNO = #{jno}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="JMap">
+        select
+          JNO, JNAME, CITY
+        from J
+        <where>
+            <if test="jno != null and jno != ''">
+                and JNO = #{jno}
+            </if>
+            <if test="jname != null and jname != ''">
+                and JNAME = #{jname}
+            </if>
+            <if test="city != null and city != ''">
+                and CITY = #{city}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from J
+        <where>
+            <if test="jno != null and jno != ''">
+                and JNO = #{jno}
+            </if>
+            <if test="jname != null and jname != ''">
+                and JNAME = #{jname}
+            </if>
+            <if test="city != null and city != ''">
+                and CITY = #{city}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="jno" useGeneratedKeys="true">
+        insert into J(JNAME, CITY)
+        values (#{jname}, #{city})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="jno" useGeneratedKeys="true">
+        insert into J(JNAME, CITY)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.jname}, #{entity.city})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="jno" useGeneratedKeys="true">
+        insert into J(JNAME, CITY)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.jname}, #{entity.city})
+        </foreach>
+        on duplicate key update
+        JNAME = values(JNAME),
+        CITY = values(CITY)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update J
+        <set>
+            <if test="jname != null and jname != ''">
+                JNAME = #{jname},
+            </if>
+            <if test="city != null and city != ''">
+                CITY = #{city},
+            </if>
+        </set>
+        where JNO = #{jno}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from J where JNO = #{jno}
+    </delete>
+
+</mapper>
+

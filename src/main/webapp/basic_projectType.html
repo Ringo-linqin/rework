@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>交通运输就业与再就业平台</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="assets/images/实习就业.svg" />
+</head>
+<style>
+  .inputStyle{
+    height:30px;
+    min-width: 80px;
+    width:auto;
+    border:none;
+  }
+</style>
+<body>
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/就业.svg" alt="logo"
+                                                                style="width:80px;height:60px" /></a>
+      <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/就业.svg" alt="logo" /></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <span class="mdi mdi-menu"></span>
+      </button>
+
+      <ul class="navbar-nav navbar-nav-right">
+
+        <li class="nav-item d-none d-lg-block full-screen-link">
+          <a class="nav-link">
+            <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+             data-bs-toggle="dropdown">
+            <i class="mdi mdi-bell-outline"></i>
+            <span class="count-symbol bg-danger"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+               aria-labelledby="notificationDropdown">
+            <h6 class="p-3 mb-0">通知</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-success">
+                  <i class="mdi mdi-calendar"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-warning">
+                  <i class="mdi mdi-settings"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-info">
+                  <i class="mdi mdi-link-variant"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+          </div>
+        </li>
+        <li class="nav-item nav-logout d-none d-lg-block">
+          <a class="nav-link" href="login.html">
+            <i class="mdi mdi-power"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- 进入全屏后，退出全屏使用的x图标 -->
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+              data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="nav-profile-image">
+              <img src="assets/images/test.jpg" alt="profile">
+              <span class="login-status online"></span>
+              <!--change to offline or busy as needed-->
+            </div>
+            <div class="nav-profile-text d-flex flex-column">
+              <span class="font-weight-bold mb-2">root</span>
+              <span class="text-secondary text-small">超级管理员</span>
+            </div>
+            <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <span class="menu-title">主页</span>
+            <i class="mdi mdi-home menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false"
+             aria-controls="ui-basic1">
+            <span class="menu-title">基本参数管理</span>
+            <i class="menu-arrow"></i>
+            <i class="mdi mdi-table-large menu-icon"></i>
+          </a>
+          <div class="collapse" id="ui-basic1">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="basic_projectType.html">机构类型管理</a></li>
+              <li class="nav-item"> <a class="nav-link" href="basic_trainType.html">培训类型管理</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false"
+             aria-controls="ui-basic2">
+            <span class="menu-title">业主机构管理</span>
+            <i class="menu-arrow"></i>
+            <i class="mdi mdi-contacts menu-icon"></i>
+          </a>
+          <div class="collapse" id="ui-basic2">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="organization_information.html">业主机构基本信息管理</a></li>
+              <li class="nav-item"> <a class="nav-link" href="organization_plan.html">培训计划管理</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false"
+             aria-controls="ui-basic3">
+            <span class="menu-title">资料管理</span>
+            <i class="menu-arrow"></i>
+            <i class="mdi mdi-calendar-text menu-icon"></i>
+          </a>
+          <div class="collapse" id="ui-basic3">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="manageQuestion.html">试题库</a></li>
+              <li class="nav-item"> <a class="nav-link" href="manageVideo.html">视频文档库</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false"
+             aria-controls="ui-basic4">
+            <span class="menu-title">学员管理</span>
+            <i class="menu-arrow"></i>
+            <i class="mdi mdi-account-multiple menu-icon"></i>
+          </a>
+          <div class="collapse" id="ui-basic4">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="student_information.html">学员信息管理</a></li>
+              <li class="nav-item"> <a class="nav-link" href="student_study.html">学员学习情况</a></li>
+              <li class="nav-item"> <a class="nav-link" href="student_exam.html">学员考试情况</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header" style="position: absolute;">
+          <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-table-large"></i>
+              </span> 机构类型管理
+          </h3>
+        </div>
+        <ul class="navbar-nav navbar-nav-right" style="float:right;margin-bottom: 15px;">
+          <li>
+            <nav class="nav">
+              <button id="addBtn" name="addBtn"
+                      style="margin-right:24px;background-color: #b66dff; border-color: #b66dff;color:white; border-radius: 5px 5px 5px 5px;width:70px;height:40px;">
+                <i class="mdi mdi-plus-circle-outline"></i> 添加</button>
+              <form class="example" action="/" style="margin-right: 0;max-width:200px;">
+                <input type="text" placeholder="搜索" id="keyword">
+                <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+              </form>
+            </nav>
+          </li>
+        </ul>
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">机构类型表</h4>
+              <table class="table" id="projectTable">
+                <thead>
+                <tr class="table-primary">
+                  <th>序号</th>
+                  <th> 机构类型编号 </th>
+                  <th> 机构类型名称 </th>
+                  <th> 操作 </th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer">
+        <div class="container-fluid d-flex justify-content-center">
+            <span class="text-muted d-block text-center text-sm-end d-sm-inline-block">Copyright © 871.com
+            </span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!--添加模态框-->
+<div class="modal" id="projectTypeModal">
+  <div class="modal-dialog" role="dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <strong>机构类型信息</strong>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-horizontal" role="form">
+            <div class="row">
+              <label style="text-align: center;">机构类型编号：<input type="text" id="projectTypeId"  class="inputStyle"/></label>
+              <label class="mt-3 mb-3" style="text-align: center;">机构类型名称：<input type="text"  id="projectTypeName" class="inputStyle"/></label>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;margin-bottom: 20px;">
+          <button type="button" class="btnstyle" id="saveBtn" style="margin-left:120px;margin-right:50px;">保存</button>
+          <button type="button" class="btnstyle" data-dismiss="modal" id="backBtn">返回</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--修改模态框-->
+<div class="modal" id="projectTypeModal2">
+  <div class="modal-dialog" role="dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <strong>机构类型信息</strong>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-horizontal" role="form">
+            <div class="row">
+              <label style="text-align: center;">机构类型编号：<input type="text" id="projectTypeId2"  class="inputStyle" readonly="readonly"/></label>
+              <label class="mt-3 mb-3" style="text-align: center;">机构类型名称：<input type="text"  id="projectTypeName2" class="inputStyle"/></label>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;margin-bottom: 20px;">
+          <button type="button" class="btnstyle" id="saveBtn2" style="margin-left:120px;margin-right:50px;">保存</button>
+          <button type="button" class="btnstyle" data-dismiss="modal" id="backBtn2">返回</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- plugins:js -->
+<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="assets/vendors/chart.js/Chart.min.js"></script>
+<script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="assets/js/off-canvas.js"></script>
+<script src="assets/js/hoverable-collapse.js"></script>
+<script src="assets/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/todolist.js"></script>
+<!-- End custom js for this page -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  $('#myTab a:first').tab('show')
+  jQuery(document).ready(function () {
+    findProjectType("");
+  })
+  //打开增加的弹窗
+  $('#addBtn').on('click', function () {
+    jQuery("#projectTypeId").val('');
+    jQuery("#projectTypeName").val('');
+    jQuery("#projectTypeModal").modal('show');
+  });
+  //保存信息
+  $('#saveBtn').on('click', function () {
+    saveProjectType();
+  });
+  $('#saveBtn2').on('click', function () {
+    saveProjectType2();
+  });
+  //查询信息
+  $('#searchBtn').on('click', function () {
+    var key = $('#keyword').val();
+    findProjectType(key);
+  })
+  //返回
+  $('#backBtn').on('click', function () {
+    jQuery("#projectTypeModal").modal('hide');
+  });
+  $('#backBtn2').on('click', function () {
+    jQuery("#projectTypeModal2").modal('hide');
+  });
+  //添加信息
+  function saveProjectType() {
+    var url = '/rework_war/InsertProjectTypeServlet';//路径
+    var id = $('#projectTypeId').val();
+    var name = $('#projectTypeName').val();
+    var data = {
+      'projectTypeId': id,
+      'projectTypeName': name
+    }
+    $.ajax({
+      type: "post",
+      url: url,
+      dataType: "json",
+      data: data,
+      success: function (data) {
+        if (data.code == 1) {
+          findProjectType('');
+          jQuery("#projectTypeModal").modal('hide');
+        } else {
+          alert('保存失败')
+        }
+      }
+    })
+  }
+  function saveProjectType2() {
+    var url = '/rework_war/InsertProjectTypeServlet';//路径
+    var id = $('#projectTypeId2').val();
+    var name = $('#projectTypeName2').val();
+    var data = {
+      'projectTypeId': id,
+      'projectTypeName': name
+    }
+    $.ajax({
+      type: "post",
+      url: url,
+      dataType: "json",
+      data: data,
+      success: function (data) {
+        if (data.code == 1) {
+          findProjectType('');
+          jQuery("#projectTypeModal2").modal('hide');
+        } else {
+          alert('保存失败')
+        }
+      }
+    })
+  }
+  //编辑信息
+  function editProjectType(d) {
+    var i = d.value;
+    var table = document.getElementById("projectTable");
+    var rows = table.rows;
+
+    var projectTypeId = rows[i].cells[1].innerHTML;
+    var projectTypeName = rows[i].cells[2].innerHTML;
+
+    $('#projectTypeId2').val(projectTypeId);
+    $('#projectTypeName2').val(projectTypeName);
+
+    jQuery("#projectTypeModal2").modal('show');
+  }//删除居民信息
+  function deleteProjectType(d) {
+    if (!confirm("是否删除该机构类型信息"))
+      return;
+    var i = d.value;
+    var table = document.getElementById("projectTable");
+    var rows = table.rows;
+
+    var projectTypeId = rows[i].cells[1].innerHTML;
+    var url = '/rework_war/DeleteProjectTypeServlet?projectTypeId=' + projectTypeId;
+    $.ajax({
+      type: "get",
+      url: url,
+      dataType: "json",
+      success: function (data) {
+        findProjectType("");
+        if (code != 0) {
+          alert("删除成功");
+
+        } else
+          alert("删除失败");
+      }
+    })
+  }
+  //查找信息
+  function findProjectType(key) {
+    var url = '/rework_war/ProjectTypeQuery?key=' + key;//路径
+    var t1 = document.getElementById("projectTable");
+    $
+            .ajax({
+              type: "get",
+              url: url,
+              dataType: "json",
+              contentType: "application/x-www-form-urlencoded; charset=utf-8",
+              success: function (data) {
+                //根据返回的数据画出表格
+                if (data != null) { /*加载表格前先删除除第一行的所有行 */
+                  var rows = t1.rows;
+                  for (var i = rows.length - 1; i > 0; i--) {
+                    rows[i].remove();
+                  }
+                  for (var i = 0; i < data.types.length; i++) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = "<td>"
+                            + (i + 1)
+                            + "</td>"
+                            + "<td>"
+                            + data.types[i].trainingInstitutionNo
+                            + "</td>"
+                            + "<td>"
+                            + data.types[i].trainingInstitutionName
+                            + "</td>"
+                            + "<td><button style=' width:auto;\n" +
+                            "  border-radius: 5px 5px 5px 5px;\n" +
+                            "  height:35px;\n" +
+                            "  border-color: #c183ff;\n" +
+                            "  margin-right: 10px;\n" +
+                            "  color:white;\n" +
+                            "  background: #c183ff;' id=‘editBtn’ onclick='editProjectType(this)' value='"
+                            + (i + 1)
+                            + "'>修改</button>"
+                            + "<button style=' width:auto;\n" +
+                            "  border-radius: 5px 5px 5px 5px;\n" +
+                            "  height:35px;\n" +
+                            "  border-color: #c183ff;\n" +
+                            "  margin-right: 10px;\n" +
+                            "  color:white;\n" +
+                            "  background: #c183ff;' id='delBtn' onclick='deleteProjectType(this)' value='"
+                            + (i + 1) + "'>删除</button></td>";
+                    t1.appendChild(row);
+                  }
+                }
+              }
+            })
+  }
+</script>
+</body>
+
+</html>

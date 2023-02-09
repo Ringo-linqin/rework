@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>交通运输就业与再就业平台</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/实习就业.svg" />
+</head>
+<style>
+    .inputStyle{
+        height:30px;
+        min-width: 220px;
+        width:auto;
+        border:none;
+    }
+    .inputStyle.option{
+        height:30px;
+        width: 220px;
+        border:none;
+    }
+    body{
+        margin:0px;
+        padding:0px;
+        font-family:poppins;
+        background-color: #f8f8f8;
+    }
+    *{
+        box-sizing:border-box;
+    }
+    a{
+        text-decoration:none;
+    }
+    #planTable{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #card #team{
+        width:100%;
+        min-height:40vh;
+        height:auto;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction:column;
+    }
+
+    #card #team .container #box{
+        width:266px;
+        height:360px;
+        background-color: #fff;
+        box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding:20px;
+        border-radius:10px;
+        margin:20px;
+        position: relative;
+    }
+    #card #team .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #card #team .container #top-bar{
+        width:50%;
+        height:4px;
+        left:50%;
+        top:0px;
+        display: flex;
+        transform:translateX(-50%);
+        background-color: #507bfc;
+        border-radius: 0px 0px 10px 10px;
+    }
+    #card #team .container #box #details{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+    }
+    #card #team .container #box #details img{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        overflow:hidden;
+        object-fit:cover;
+        object-position: center;
+    }
+    #card #team .container #box #details strong{
+        font-weight: 500;
+        color:#141414;
+        letter-spacing:1px;
+        margin-top:10px;
+    }
+    #card #team .container #box #details p{
+        font-size:0.8rem;
+        color:#7a7a7a;
+        margin:5px 0px;
+
+    }
+    #card #team .container #box #btn{
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    #card #team .container #box #btn button{
+        color:#8b8b8b;
+        padding:8px 22px;
+        border-radius:20px;
+        font-size:0.9rem;
+        border:none;
+    }
+    #card #team .container #box #btn button i{
+        margin-right: 10px;
+    }
+    #card #team .container #box #btn button:hover{
+        color:#fff;
+        background-color: #507bfc;
+        box-shadow:2px 5px 15px rgba(80,123,252,0.5);
+        transition:all ease 0.3s;
+    }
+    #card #team .container #box:hover{
+        box-shadow: 2px 2px 30px rgba(4,15,49,0.1);
+        transform:scale(1.01);
+        transition:all ease 0.1s;
+    }
+
+</style>
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/就业.svg" alt="logo"
+                        style="width:80px;height:60px" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/就业.svg"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+
+                    <li class="nav-item d-none d-lg-block full-screen-link">
+                        <a class="nav-link">
+                            <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-bs-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count-symbol bg-danger"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0">通知</h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="mdi mdi-calendar"></i>
+                                    </div>
+                                </div>
+                                <div
+                                    class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-warning">
+                                        <i class="mdi mdi-settings"></i>
+                                    </div>
+                                </div>
+                                <div
+                                    class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-info">
+                                        <i class="mdi mdi-link-variant"></i>
+                                    </div>
+                                </div>
+                                <div
+                                    class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-logout d-none d-lg-block">
+                        <a class="nav-link" href="login.html">
+                            <i class="mdi mdi-power"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 进入全屏后，退出全屏使用的x图标 -->
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="nav-profile-image">
+                                <img src="assets/images/test.jpg" alt="profile">
+                                <span class="login-status online"></span>
+                                <!--change to offline or busy as needed-->
+                            </div>
+                            <div class="nav-profile-text d-flex flex-column">
+                                <span class="font-weight-bold mb-2">root</span>
+                                <span class="text-secondary text-small">超级管理员</span>
+                            </div>
+                            <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <span class="menu-title">主页</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false"
+                            aria-controls="ui-basic1">
+                            <span class="menu-title">基本参数管理</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-table-large menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic1">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="basic_projectType.html">机构类型管理</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="basic_trainType.html">培训类型管理</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false"
+                            aria-controls="ui-basic2">
+                            <span class="menu-title">业主机构管理</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-contacts menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic2">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="organization_information.html">业主机构基本信息管理</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="organization_plan.html">培训计划管理</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
+                          <span class="menu-title">资料管理</span>
+                          <i class="menu-arrow"></i>
+                          <i class="mdi mdi-calendar-text menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic3">
+                          <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="manageQuestion.html">试题库</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="manageVideo.html">视频文档库</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
+                          <span class="menu-title">学员管理</span>
+                          <i class="menu-arrow"></i>
+                          <i class="mdi mdi-account-multiple menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic4">
+                          <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="student_information.html">学员信息管理</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="student_study.html">学员学习情况</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="student_exam.html">学员考试情况</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header" style="position: absolute;">
+                        <h3 class="page-title">
+                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                <i class="mdi mdi-calendar-multiple-check"></i>
+                            </span>培训计划管理
+                        </h3>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-right" style="float:right;margin-bottom: 15px;">
+                        <li>
+                            <nav class="nav">
+                                <button id="addBtn"
+                                    style="margin-right:24px;background-color: #b66dff; border-color: #b66dff;color:white; border-radius: 5px 5px 5px 5px;width:70px;height:40px;">
+                                    <i class="mdi mdi-plus-circle-outline"></i> 添加</button>
+                                <form class="example" action="/" style="margin-right: 0px;max-width:200px;">
+                                    <input type="text" placeholder="搜索" id="keyword">
+                                    <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </nav>
+                        </li>
+                    </ul>
+<!--                    <div class="col-lg-12 grid-margin stretch-card">-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-body">-->
+<!--                                <h4 class="card-title">培训计划表</h4>-->
+<!--                                <table class="table  table-bordered">-->
+<!--                                    <thead>-->
+<!--                                        <tr class="table-primary">-->
+<!--                                          <th style="width:5%">序号</th>-->
+<!--                                          <th style="width:10%"> 培训计划编号</th>-->
+<!--                                          <th style="width:10%"> 机构编号 </th>-->
+<!--                                          <th style="width:10%"> 培训类型 </th>-->
+<!--                                          <th style="width:10%"> 培训计划名称</th>-->
+<!--                                          <th style="width:10%"> 培训周期</th>-->
+<!--                                          <th style="width:10%">培训开始时间</th>-->
+<!--                                          <th style="width:10%">培训结束时间</th>-->
+<!--                                          <th style="width:25%"> 操作 </th>-->
+<!--                                        </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td>1</td>-->
+<!--                                            <td>plan1</td>-->
+<!--                                            <td>o01</td>-->
+<!--                                            <td>教育</td>-->
+<!--                                            <td>a计划</td>-->
+<!--                                            <td>xx</td>-->
+<!--                                            <td>2022-11-31</td>-->
+<!--                                            <td>xx</td>-->
+<!--                                            <td><button class="btnstyle">修改</button><button class="btnstyle">删除</button>-->
+<!--                                                <button class="btnstyle">配置视频文档</button><button class="btnstyle">配置试卷</button>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                <div id="card">
+                    <section id="team">
+                        <!--container-->
+                        <div class="container">
+                            <!-- box-1 -->
+                            <table class="table" id="planTable">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <span class="text-muted d-block text-center text-sm-end d-sm-inline-block">Copyright © 871.com
+                        </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!--添加模态框-->
+    <div class="modal" id="planModal">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            <strong>培训计划信息</strong>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal" role="form">
+                            <div class="row">
+                                <label class="mb-3" style="text-align: center;">培训计划编号：<input type="text" id="trainingPlanId"  class="inputStyle"/></label>
+                                <label class="mt-3 mb-3" style="text-align: center;">培训计划名称：<input type="text"  id="trainingPlanName" class="inputStyle"/></label>
+                                <label  class="mt-3 mb-3" style="text-align: center;" id="left">培训计划类型：
+                                    <select id="mySelect" name="mySelect"  class="inputStyle">
+                                    </select>
+                                </label>
+                                <label class="mt-3 mb-3" style="text-align: center;">培训开始时间：<input id="comDate" name="comDate" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss' />" type="datetime-local" required="" min="" class="inputStyle"/></label>
+                                <label class="mt-3 mb-3" style="text-align:center;">培训结束时间：<input id="outDate" name="outDate" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss' />" type="datetime-local" required="" min="" class="inputStyle"/></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-bottom: 20px;">
+                        <button type="button" class="btnstyle" id="saveBtn" style="margin-left:120px;margin-right:50px;">保存</button>
+                        <button type="button" class="btnstyle" data-dismiss="modal" id="backBtn">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- End custom js for this page -->
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script>
+        var currentPlans=[]//记录plans的计划编号
+        jQuery(document).ready(function () {
+            findPlan("");
+            var begin=document.getElementById("comDate");
+            var now=new Date();
+            begin.setAttribute("value",formatDate(now));
+            var end=document.getElementById("outDate");
+            end.setAttribute("value",formatDate(now));
+        })
+        //打开增加的弹窗
+        $('#addBtn').on('click', function () {
+            jQuery("#trainingPlanId").val('');
+            jQuery("#trainingPlanName").val('');
+            $("#mySelect").empty();
+            findType('');
+            jQuery("#planModal").modal('show');
+        });
+        //保存信息
+        $('#saveBtn').on('click', function () {
+            savePlan();
+        });
+        //查询信息
+        $('#searchBtn').on('click', function () {
+            var key = $('#keyword').val();
+            findPlan(key);
+        })
+        //返回
+        $('#backBtn').on('click', function () {
+            jQuery("#planModal").modal('hide');
+        });
+        //查找培训类型
+        function findType(){
+            $("#mySelect").empty();
+            var key=''
+            var url = '/rework_war/TrainTypeQueryServlet?key='+key;//路径
+            var t1 = document.getElementById("mySelect");
+            $
+                .ajax({
+                    type : "get",
+                    url : url,
+                    dataType : "json",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    success : function(data) {
+                        var v="no";
+                        var x="请选择培训类型";
+                        var Row1 = "<option value="+v+">"+x+"</option>";
+                        $("#left select").append(Row1);
+                        for(var i = 0 ; i < data.types.length;i++){
+                            /*创建新的一行*/
+                            var newRow = "<option value="+data.types[i].trainingTypeNo+">"+data.types[i].trainingTypeName+"</option>";
+                            /*插入新的一行*/
+                            $("#left select").append(newRow);
+                        }
+                    }
+                })
+        }
+        //添加信息
+        function savePlan() {
+            var url = '/rework_war/InsertTrainingPlanServlet';//路径
+            var institutionNo='0';//超级管理员
+            var trainingPlanNo = $('#trainingPlanId').val();
+            var trainingPlanName = $('#trainingPlanName').val();
+            var trainingTypeNo= document.getElementById('mySelect').options[document.getElementById('mySelect').selectedIndex].value;
+            var trainingStartTime=document.getElementById('comDate').value;
+            var trainingEndTime=document.getElementById('outDate').value;
+            var data = {
+                'institutionNo':institutionNo,
+                'trainingPlanNo':trainingPlanNo,
+                'trainingTypeNo':trainingTypeNo,
+                'trainingPlanName':trainingPlanName,
+                'trainingStartTime':trainingStartTime,
+                'trainingEndTime':trainingEndTime
+            }
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                data: data,
+                success: function (data) {
+                    if (data.code == 1) {
+                        findPlan('');
+                        jQuery("#planModal").modal('hide');
+                    } else {
+                        alert('保存失败')
+                    }
+                }
+            })
+        }
+        //删除信息
+        function deletePlan(d) {
+            if (!confirm("是否删除该培训计划信息"))
+                return;
+            var i = d.value;
+            var  trainingPlanNo = currentPlans[i];
+            var url = '/rework_war/DeleteTrainingPlanServlet?trainingPlanNo=' + trainingPlanNo;
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                success: function (data) {
+                    findPlan("");
+                    if (code != 0) {
+                        alert("删除成功");
+
+                    } else
+                        alert("删除失败");
+                }
+            })
+        }
+        //查找信息
+        function findPlan(key) {
+            var url = '/rework_war/TrainingPlanQueryServlet?key=' + key;//路径
+            var t1 = document.getElementById("planTable");
+            $
+                .ajax({
+                    type: "get",
+                    url: url,
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function (data) {
+                        //根据返回的数据画出表格
+                        if (data != null) { /*加载表格前先删除除第一行的所有行 */
+                            var rows = t1.rows;
+                            for (var i = rows.length - 1; i >= 0; i--) {
+                                rows[i].remove();
+                            }
+                            for (var i = 0; i < data.plans.length; i++) {
+                                currentPlans[i]=data.plans[i].trainingPlanNo
+                                var row = document.createElement('tr');
+                                row.innerHTML = "<td>"+
+                                    "<div id='box'>"
+                                    +"<div id= 'top-bar'></div>"
+                                    +"<div id= 'details'>"
+                                    +"<img src='assets/images/plan.jpg'>"
+                                    +"<strong class='mt-1 mb-1'>"
+                                    +data.plans[i].trainingPlanName+ "</strong>"
+                                    +"<p>编号："+data.plans[i].trainingPlanNo+"  类型："+data.plans[i].trainingTypeNo+"</p>"
+                                    +"<p>业主机构编号："+data.plans[i].institutionNo+"</p>"
+                                    +"<p>培训开始时间："+ formatDate(data.plans[i].trainingStartTime)+"</p>"
+                                    +"<p>培训结束时间："+ formatDate(data.plans[i].trainingEndTime)+"</p>"
+                                    +"</div>"
+                                    +"<div id='btn'>"
+                                    +"<button "+" id='delBtn' onclick='deletePlan(this)' value='"
+                                    + i +"'><i class='mdi mdi-close-circle-outline'></i>删除</button>"
+                                    +"<button "+" id='enterBtn' onclick='enterPlan(this)' value='"
+                                    + i +"'><i class='mdi mdi-arrow-right-bold-circle-outline'></i>进入</button>"
+                                    +"</div>"
+                                    +"</div></td>";
+                                t1.appendChild(row);
+                            }
+                        }
+                    }
+                })
+        }
+        function formatDate(val){
+
+            var date =new Date(val);
+
+            var y = date.getFullYear();
+
+            var m = date.getMonth()+1>10 ? date.getMonth()+1:"0"+(date.getMonth()+1);
+
+            var d = date.getDate()>10? date.getDate():"0"+date.getDate();
+
+            var h=date.getHours();
+
+            var mi=date.getMinutes() >10 ? date.getMinutes():"0" +date.getMinutes();
+
+            var s=date.getSeconds() >10 ?date.getSeconds():"0" +date.getSeconds();
+
+            return y +'-'+ m +'-'+ d + ' ' + h +':'+mi+':'+s;
+
+        }
+        $("#comDate").on("click", function () {
+            //当前时间
+            var date_now = new Date();
+            //得到当前年份
+            var year = date_now.getFullYear();
+            //得到当前月份
+            // js中获取Date中的month时，会比当前月份少一个月，所以这里需要先加1
+            // 判断当前月份是否小于10，如果小于，那么就在月份的前面加一个 '0' ， 如果大于，就显示当前月份
+            var month = date_now.getMonth() + 1 < 10 ? "0" + (date_now.getMonth() + 1) : (date_now.getMonth() + 1);
+            //得到当前日期
+            var date = date_now.getDate() < 10 ? "0" + date_now.getDate() : date_now.getDate();
+            var hour=date_now.getHours();
+            var minutes=date_now.getMinutes()<10 ? "0"+date_now.getMinutes():date_now.getMinutes();
+            var seconds=date_now.getSeconds()<10 ? "0"+date_now.getSeconds():date_now.getSeconds();
+            //设置input标签的max属性,不能选取这个时间点之后的时间
+            $("#comDate").attr("min", year + "-" + month + "-" + date+" "+hour+":"+minutes+":"+seconds);
+            document.getElementById('outDate').value = "";
+        })
+        $("#outDate").on("click", function () {
+            var oldDate = document.getElementById('comDate').value;
+            //设置input标签的min属性,不能选取这个时间点之前的时间
+            $("#outDate").attr("min", oldDate);
+        })
+    </script>
+</body>
+
+</html>
